@@ -1,11 +1,13 @@
 {{#visible}}
+  <div class="form-group">
     <label for="restaurant-list">Select a Restaurant:</label>
-    <select id="restaurant-list" can-value="currentRestaurantIndex">
+    <select class="form-control" id="restaurant-list" can-value="currentRestaurantIndex">
         <option value="-1"></option>
         {{#each restaurants}}
             <option value="{{@index}}">{{name}}</option>
         {{/each}}
     </select>
+  </div>
 
 
     {{#if currentRestaurant}}
@@ -13,14 +15,16 @@
             <div id="current-restaurant">
 
                 <h3 id="restaurant-name">{{name}}</h3>
-                <ul id="restaurant-details">
-                    <li>Location: {{location}}</li>
-                    <li>Cuisine: {{cuisine}}</li>
-                    <li>Owner: {{owner}}</li>
+                <ul class="list-group" id="restaurant-details">
+                    <li class="list-group-item"><strong>Location:</strong> {{location}}</li>
+                    <li class="list-group-item"><strong>Cuisine:</strong> {{cuisine}}</li>
+                    <li class="list-group-item"><strong>Owner:</strong> {{owner}}</li>
                 </ul>
             </div>
 
-            <button id="place-order" can-click="showMenu">Place an Order from {{name}}</button>
+            <div class="text-center">
+              <button id="place-order" class="btn btn-primary btn-lg" can-click="showMenu">Place an Order from {{name}}</button>
+            </div>
         {{/currentRestaurant}}
     {{/if}}
 {{/visible}}

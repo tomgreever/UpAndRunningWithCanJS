@@ -1,37 +1,53 @@
-<h1>{{restaurantName}}</h1>
-
+<h2 class="text-center">{{restaurantName}}</h2>
 {{#each menus}}
 
-    <h3>{{menuName}}</h3>
-
+    <h3 class="">{{menuName}}</h3>
+<ul class="list-group">
     {{#each items}}
+      <li class="list-group-item">
         <label>
-            <input type="checkbox" can-value="selected"> {{name}}, ${{price}}
+            <input type="checkbox" can-value="selected"> {{name}} <span class="badge">${{price}}</span>
         </label>
+      </li>
     {{/each}}
-
+</ul>
 {{/each}}
 
 
 {{#delivery}}
-
+    <hr />
     <div id="customer-details">
-        <label>Name:
-            <input type="text" can-value="name" id="name"/>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Order Form</h3>
+            </div>
+            
+          <div class="panel-body">
 
-            <div class="warning">{{issues.name}}</div>
-        </label>
-
-        <label>Address:
-            <input type="text" can-value="address" id="address"/>
-
-            <div class="warning">{{issues.address}}</div>
-        </label>
-
-        <label>Telephone:
-            <input type="tel" can-value="telephone" id="telephone"/>
-        </label></div>
+            <form>
+            <div class="form-group">
+                <label>Name:</label>
+                    <input class="form-control" type="text" can-value="name" id="name"/>
+                    <div class="warning">{{issues.name}}</div>    
+                </div>
+                
+          <div class="form-group">
+                <label>Address:</label>
+                    <input class="form-control" type="text" can-value="address" id="address"/>
+                    <div class="warning">{{issues.address}}</div>
+                </div>
+                
+              <div class="form-group">
+                <label>Telephone:</label>
+                    <input class="form-control" type="tel" can-value="telephone" id="telephone"/>
+                </div>
+                </form>
+                </div>
+          </div>
+        </div>
 
 {{/delivery}}
 
-<button can-click="placeOrder">Place My Order!</button>
+<div class="text-center">
+  <button class="btn btn-primary btn-lg" can-click="placeOrder">Place My Order!</button>
+</div>
